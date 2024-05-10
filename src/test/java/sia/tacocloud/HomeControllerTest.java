@@ -29,8 +29,5 @@ public class HomeControllerTest {
         .andExpect(view().name("home"))
         //Ожидается наличие строки «Welcome to...»
         .andExpect(content().string(containsString("Welcome to...")));
-        
-    }
-
-    
+    } 
 }

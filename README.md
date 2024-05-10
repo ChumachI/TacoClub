@@ -7,9 +7,9 @@
 <hr>
 
 ## Используемые технологии
- - Spring Boot 3.2.5
- - Thymeleaf
- - Spring Boot Devtools
- - Lombok
- - Spring Boot Starter Test
- - Spring Boot Starter Web
+- Spring Boot 3.2.5
+- Spring Boot Devtools
+- Spring Boot Starter Test
+- Spring Boot Starter Web
+- Thymeleaf
+- Lombok

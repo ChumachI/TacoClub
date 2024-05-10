@@ -12,6 +12,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import sia.tacocloud.controller.HomeController;
 
 //Тест для HomeController
+/*
+    Это специальная тестовая аннотация из Spring
+    Boot, которая организует запуск теста в контексте приложения Spring
+    MVC. В данном случае она обеспечивает регистрацию класса Home-
+    Controller в Spring MVC, чтобы дать возможность отправлять ему за-
+    просы.
+ */
 @WebMvcTest(HomeController.class)
 public class HomeControllerTest {
 

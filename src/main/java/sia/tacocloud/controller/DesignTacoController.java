@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -16,6 +17,7 @@ import sia.tacocloud.entity.Ingredient;
 import sia.tacocloud.entity.Ingredient.Type;
 import sia.tacocloud.entity.Taco;
 import sia.tacocloud.entity.TacoOrder;
+
 
 
 
@@ -66,6 +68,14 @@ public class DesignTacoController {
     public String showDesignForm() {
         return "design";
     }
+
+    @PostMapping
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder){
+        tacoOrder.addTaco(taco);
+        log.info("Processing taco {}", taco);
+        return "redirect:/orders/current";
+    }
+    
     
 
     private Object filterByType(List<Ingredient> ingredients, Type type) {

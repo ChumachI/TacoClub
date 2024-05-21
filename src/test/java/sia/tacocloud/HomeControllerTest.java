@@ -9,17 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import sia.tacocloud.controller.HomeController;
 
-//Тест для HomeController
-/*
-    Это специальная тестовая аннотация из Spring
-    Boot, которая организует запуск теста в контексте приложения Spring
-    MVC. В данном случае она обеспечивает регистрацию класса Home-
-    Controller в Spring MVC, чтобы дать возможность отправлять ему за-
-    просы.
- */
-@WebMvcTest(HomeController.class)
+
+@WebMvcTest
 public class HomeControllerTest {
 
     @Autowired

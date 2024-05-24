@@ -11,5 +11,7 @@
 - Spring Boot Devtools
 - Spring Boot Starter Test
 - Spring Boot Starter Web
+- Spring Boot Starter Validation
+- Spring Boot Starter Data JDBC
 - Thymeleaf
 - Lombok

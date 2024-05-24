@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TacoCloudApplication {
 
 	public static void main(String[] args) {
-		/*Метод run() принимает два параметра: класс конфигурации и аргументы командной строки. */
 		SpringApplication.run(TacoCloudApplication.class, args);
 	}
 }

@@ -2,17 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-		<!-- Первое, на что следует обратить внимание, – это элемент <par-
-		ent> и его дочерний элемент <version>. Он сообщает, что ваш про-
-		ект имеет родительский файл POM1 spring-boot-starter-parent.
-		Помимо прочего, родительский POM определяет зависимости от
-		нескольких биб­лиотек, часто используемых в проектах Spring. Для
-		библиотек, определяемых в родительском POM, не нужно указывать
-		версию, потому что она наследуется от родителя. Версия 2.5.6 со-
-		ответствует Spring Boot 2.5.6, соответственно, управление зависи-
-		мостями осуществляется, как определено в этой версии Spring Boot.
-		Среди прочего Spring Boot 2.5.6 определяет базовую версию ядра
-		Spring Framework – 5.3.12. -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -59,6 +48,16 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 

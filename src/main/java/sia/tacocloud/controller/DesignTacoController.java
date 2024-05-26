@@ -1,6 +1,5 @@
 package sia.tacocloud.controller;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +18,7 @@ import sia.tacocloud.entity.Ingredient;
 import sia.tacocloud.entity.Ingredient.Type;
 import sia.tacocloud.entity.Taco;
 import sia.tacocloud.entity.TacoOrder;
+import sia.tacocloud.repository.IngredientRepository;
 
 
 
@@ -29,20 +29,15 @@ import sia.tacocloud.entity.TacoOrder;
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
 
+    private IngredientRepository ingredientRepository;
+    
+    public DesignTacoController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
+    }
+
     @ModelAttribute
     public void addIngredientsToModel(Model model){
-        List<Ingredient> ingredients = Arrays.asList(
-          new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
-          new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
-          new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
-          new Ingredient("CARN", "Carnitas", Type.PROTEIN),
-          new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
-          new Ingredient("LETC", "Lettuce", Type.VEGGIES),
-          new Ingredient("CHED", "Cheddar", Type.CHEESE),
-          new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
-          new Ingredient("SLSA", "Salsa", Type.SAUCE),
-          new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
-        );
+        List<Ingredient> ingredients = ingredientRepository.findAll();
 
         Type[] types = Type.values();
 

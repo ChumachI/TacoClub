@@ -1,7 +1,7 @@
 package sia.tacocloud.controller;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +37,7 @@ public class DesignTacoController {
 
     @ModelAttribute
     public void addIngredientsToModel(Model model){
-        List<Ingredient> ingredients = ingredientRepository.findAll();
+        Iterable<Ingredient> ingredients = ingredientRepository.findAll();
 
         Type[] types = Type.values();
 
@@ -74,8 +74,14 @@ public class DesignTacoController {
     
     
 
-    private Object filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
+    private Object filterByType(Iterable<Ingredient> ingredients, Type type) {
+        List<Ingredient> filtered = new ArrayList<>();
+        for(Ingredient ingredient : ingredients){
+            if(ingredient.getType().equals(type)){
+                filtered.add(ingredient);
+            }
+        }
+        return filtered;
     }
     
 }

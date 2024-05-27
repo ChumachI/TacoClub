@@ -1,5 +1,7 @@
 package sia.tacocloud.controller;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +39,7 @@ public class OrderController {
         if(errors.hasErrors()){
             return "orderForm";
         }
+        order.setPlacedAt(new Date());
         log.info("Order submitted: {}", order);
         orderRepository.save(order);
         sessionStatus.setComplete();

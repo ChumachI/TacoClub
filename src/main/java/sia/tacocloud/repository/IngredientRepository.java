@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import sia.tacocloud.entity.Ingredient;
 
+
 public interface IngredientRepository {
     List<Ingredient> findAll();
     Optional<Ingredient> findById(String id);

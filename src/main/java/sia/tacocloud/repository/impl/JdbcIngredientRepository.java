@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import sia.tacocloud.entity.Ingredient;
 import sia.tacocloud.repository.IngredientRepository;
 
+@Repository
 public class JdbcIngredientRepository implements IngredientRepository {
 
     private JdbcTemplate jdbcTemplate;
@@ -19,7 +21,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
     }
 
     @Override
-    public Iterable<Ingredient> findAll() {
+    public List<Ingredient> findAll() {
         return jdbcTemplate.query("SELECT id, name, type FROM Ingredient", this::mapRowToIngredient);
     }
 

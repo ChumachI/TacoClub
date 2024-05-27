@@ -1,9 +1,11 @@
 package sia.tacocloud.entity;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 @Data
-public class Ingredient {
+public class Ingredient implements Serializable {
     
     private final String id;
     private final String name;

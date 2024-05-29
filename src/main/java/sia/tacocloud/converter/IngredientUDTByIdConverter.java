@@ -4,21 +4,21 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import sia.tacocloud.entity.Ingredient;
+import sia.tacocloud.entity.IngredientUDT;
 import sia.tacocloud.repository.IngredientRepository;
 
 @Component
-public class IngredientByIdConverter implements Converter<String, Ingredient> {
+public class IngredientUDTByIdConverter implements Converter<String, IngredientUDT> {
 
     private IngredientRepository ingredientRepository;
 
-    public IngredientByIdConverter(IngredientRepository ingredientRepository){
+    public IngredientUDTByIdConverter(IngredientRepository ingredientRepository){
         this.ingredientRepository = ingredientRepository;
     }
 
     @Override
     @Nullable
-    public Ingredient convert(String id) {
-        return ingredientRepository.findById(id).orElse(null);
+    public IngredientUDT convert(String id) {
+        return ingredientRepository.findById(id).map(x -> new IngredientUDT(x.getName(), x.getType())).orElse(null);
     }
 }

@@ -13,5 +13,6 @@
 - Spring Boot Starter Web
 - Spring Boot Starter Validation
 - Spring Boot Starter Data JDBC
+- Spring Boot Starter Data Jpa
 - Thymeleaf
 - Lombok

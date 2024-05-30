@@ -3,6 +3,7 @@ package sia.tacocloud.entity;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +29,6 @@ public class Taco {
 
     @NotNull
     @Size(min=1, message = "You must choose at least 1 ingredient")
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<IngredientRef> ingredients;
 }

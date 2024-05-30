@@ -6,3 +6,6 @@ spring:
     datasource:
         generate-unique-name: false
         name: tacocloud
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/test

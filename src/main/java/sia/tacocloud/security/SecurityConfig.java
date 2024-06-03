@@ -34,10 +34,15 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(
                 authorize -> authorize
-                        .requestMatchers("/design", "/orders", "/orders/current").hasRole("USER")
-                        .requestMatchers("/", "/**").permitAll())
-                        .formLogin(formlogin -> formlogin.loginPage("/login").defaultSuccessUrl("/design").permitAll())
-                        .csrf(csrf -> csrf.disable())
+                        .requestMatchers("/design").hasRole("USER")
+                        .requestMatchers("/orders/current").hasRole("USER")
+                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/**").permitAll())
+                .csrf(
+                        c -> c.disable())
+                .formLogin(formlogin -> formlogin
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/design"))
                 .build();
     }
 }
